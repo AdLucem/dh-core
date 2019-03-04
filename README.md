@@ -27,20 +27,35 @@ This is the directory structure of the project; the main project lives in the `d
 
 We use the [`stack`](https://docs.haskellstack.org/en/stable/README/) build tool; in the `dh-core` subdirectory, run 
 
-    stack build
+    $ stack build
 
 and this will re-build the main project and the contributed packages.
+
+More detailed developer information can be found in the wiki : https://github.com/DataHaskell/dh-core/wiki/Development 
+
+### GHC and Stackage compatibility
+
+
+Tested against :
+
+- Stackage nightly-2019-02-27 (GHC 8.6.3)
 
 
 ## Contributing
 
 1. Open an issue (https://github.com/DataHaskell/dh-core/issues) with a description of what you want to work on (if it's not already open)
 2. Assign or add yourself to the issue contributors
-3. Add code on the issue branch
-4. Add tests "
-5. Add yourself to the list of maintainers in the .cabal file (if you're not already)
-6. Send a pull request, referencing the issue
-7. Merge only _after_ another contributor has reviewed and approved the PR
+3. Pull from `dh-core:master`, start a git branch, add code 
+4. Add tests 
+5. Update the changelog, describing briefly your changes and their possible effects
+6.
+
+* If you're working on a contributed package (see next section), increase the version number in the Cabal file accordingly
+
+* If you bumped version numbers, make sure these are updated accordingly in the Travis CI .yaml file
+
+7. Send a pull request with your branch, referencing the issue
+8. `dh-core` admins : merge only _after_ another admin has reviewed and approved the PR
 
 
 
@@ -60,12 +75,15 @@ The `stack` tool can take care of multi-package projects; its `packages` stanza 
 Packages that are listed on Hackage already must be added here as distinct sub-directories. Once the migration is complete (PRs merged etc.), add the project to this table :
 
 
-| Package | Original author(s) | First version after merge |
-| --- | --- | --- |
-| `analyze` | [Eric Conlon](https://github.com/ejconlon) | 0.2.0 | 
-| `datasets` | [Tom Nielsen](https://github.com/glutamate) | 0.2.6 | 
-| `dense-linear-algebra` | [Brian O'Sullivan](https://github.com/bos) | 0.1.0 (a) | 
+| Package | Description | Original author(s) | First version after merge |
+| --- | --- | --- | --- | 
+| `analyze` | Data analysis and manipulation library | [Eric Conlon](https://github.com/ejconlon) | 0.2.0 | 
+| `datasets` | A collection of ready-to-use datasets | [Tom Nielsen](https://github.com/glutamate) | 0.2.6 | 
+| `dense-linear-algebra` | Fast, native dense linear algebra primitives | [Brian O'Sullivan](https://github.com/bos), [Alexey Khudyakov](https://github.com/Shimuuar) | 0.1.0 (a) | 
 
 (a) : To be updated
 
 NB: Remember to bump version numbers and change web links accordingly when moving in contributed packages.
+
+
+
